@@ -1,0 +1,25 @@
+https://learn.microsoft.com/en-us/training/modules/use-sql-warehouses-azure-databricks/03-databases-tables
+
+#Create databases and tables
+
+#To create a database, use the SQL editor to run a CREATE DATABASE or CREATE SCHEMA SQL statement. 
+#These statements are equivalent, but CREATE SCHEMA is preferred, as shown in this example:
+
+CREATE SCHEMA salesdata;
+
+#Tables
+
+#If the data files already exist in storage, or you need to define an explicit schema for the table, you can use a CREATE TABLE SQL statement.
+#For example, the following code creates a table named salesorders in the salesdata database, based on the /data/sales/ folder in DBFS storage.
+
+CREATE TABLE salesdata.salesorders
+(
+    orderid INT,
+    orderdate DATE,
+    customerid INT,
+    ordertotal DECIMAL
+)
+USING DELTA
+LOCATION '/data/sales/';
+
+https://microsoftlearning.github.io/dp-203-azure-data-engineer/Instructions/Labs/26-Azure-Databricks-SQL.html
